@@ -59,8 +59,6 @@
   </dependencies>
 
   <build>
-    <sourceDirectory>src/main/scala</sourceDirectory>
-    <testSourceDirectory>src/test/scala</testSourceDirectory>
     <plugins>
       <plugin>
         <!-- see http://davidb.github.com/scala-maven-plugin -->
@@ -90,7 +88,6 @@
         <configuration>
           <useFile>false</useFile>
           <disableXmlReport>false</disableXmlReport>
-          <forkMode>always</forkMode> <!-- Hive keeps closing down Spark contexts -->
           <!-- If you have classpath issue like NoDefClassError,... -->
           <!-- useManifestOnlyJar>false</useManifestOnlyJar -->
           <includes>
