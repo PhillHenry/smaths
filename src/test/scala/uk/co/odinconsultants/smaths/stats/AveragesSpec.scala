@@ -29,6 +29,10 @@ class AveragesSpec extends WordSpec with Matchers {
     "lead to Wikipedia's variance" in {
       variance(xs, bessel = true) shouldBe 4d
     }
+    "lead to a standard deviation" in {
+      stdDev(xs, bessel = true) shouldBe 2d
+    }
   }
+
 
 }
