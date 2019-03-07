@@ -1,8 +1,12 @@
 package uk.co.odinconsultants.smaths.stats
 
+import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
 import org.scalatest.{Matchers, WordSpec}
+
 import collection.immutable.Seq
 
+@RunWith(classOf[JUnitRunner])
 class AveragesSpec extends WordSpec with Matchers {
 
   import Averages._
