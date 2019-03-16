@@ -22,6 +22,9 @@ class DivergenceSpec extends WordSpec with Matchers {
     "be symmetric" in new KullbackLeiblerFixture {
       jensenShannon(ps, qs) shouldBe jensenShannon(qs, ps)
     }
+    "be non-zero if there is non-zero input" in new KullbackLeiblerFixture {
+      jensenShannon(ps, qs) should not be 0d
+    }
   }
 
 }
