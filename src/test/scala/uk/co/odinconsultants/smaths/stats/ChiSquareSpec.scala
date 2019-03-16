@@ -2,6 +2,8 @@ package uk.co.odinconsultants.smaths.stats
 
 import org.scalatest.{Matchers, WordSpec}
 
+import uk.co.odinconsultants.smaths.linalg.Tensors._
+
 class ChiSquareSpec extends WordSpec with Matchers {
 
   import ChiSquare._
@@ -14,7 +16,7 @@ class ChiSquareSpec extends WordSpec with Matchers {
                               |6     9     9     3     3
                               |3     9     9     6     3""".stripMargin
 
-  val data: Array[Array[Int]] = spreadSheet.split("\n").map(_.split(" ").filterNot(_ == "").map(_.toInt))
+  val data: Matrix[Int] = spreadSheet.split("\n").map(_.split(" ").filterNot(_ == "").map(_.toInt))
 
   "Column means" should {
     "be as defined in the example" in {

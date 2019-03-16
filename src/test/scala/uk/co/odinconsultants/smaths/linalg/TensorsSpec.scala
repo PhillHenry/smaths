@@ -6,13 +6,13 @@ class TensorsSpec extends WordSpec with Matchers {
 
   import Tensors._
 
-  val v1        = toVec(1, 2, 3)
-  val v2        = toVec(3, 2, 1)
-  val v1PlusV2  = toVec(4, 4, 4)
+  val v1:       Vec[Int]  = toVec(1, 2, 3)
+  val v2:       Vec[Int]  = toVec(3, 2, 1)
+  val v1PlusV2: Vec[Int]  = toVec(4, 4, 4)
 
   "Adding rows" should {
     "combine all rows" in {
-      addRows(Array(v1, v2)) shouldBe v1PlusV2
+      addRows(toVec(v1, v2)) shouldBe v1PlusV2
     }
   }
 

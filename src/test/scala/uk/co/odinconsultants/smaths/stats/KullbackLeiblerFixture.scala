@@ -7,8 +7,8 @@ import uk.co.odinconsultants.smaths.linalg.Tensors._
   */
 trait KullbackLeiblerFixture {
 
-  val ps: Vec[Double] = Array(0.36, 0.48, 0.16)
-  val qs: Vec[Double] = Array(0.333, 0.333, 0.333)
+  val ps: Vec[Double] = toVec(0.36, 0.48, 0.16)
+  val qs: Vec[Double] = toVec(0.333, 0.333, 0.333)
   val KL_Q_P          = 0.09637
   val tolerance       = 0.0001
 }
