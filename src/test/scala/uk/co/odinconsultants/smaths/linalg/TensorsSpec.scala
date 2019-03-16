@@ -10,7 +10,7 @@ class TensorsSpec extends WordSpec with Matchers {
     "add elements bitwise" in {
       add(Array(1, 2, 3), Array(3, 2, 1)) shouldBe Array(4, 4, 4)
     }
-    "should allow different Numeric types" in {
+    "should allow different Numeric types" ignore {
 //      add(Array(1d, 2d, 3d), Array(3, 2, 1)) shouldBe Array(4d, 4d, 4d)
     }
   }
