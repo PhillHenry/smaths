@@ -9,6 +9,7 @@ class TensorsSpec extends WordSpec with Matchers {
   val v1:       Vec[Int]  = toVec(1, 2, 3)
   val v2:       Vec[Int]  = toVec(3, 2, 1)
   val v1PlusV2: Vec[Int]  = toVec(4, 4, 4)
+  val emptyVec: Vec[Int]  = toVec(0, 0, 0)
 
   "Adding rows" should {
     "combine all rows" in {
@@ -29,11 +30,18 @@ class TensorsSpec extends WordSpec with Matchers {
     "produce elements that when squared add to 1.0" in {
       l2Normalize(v1).map(x => x * x).sum shouldBe 1.0 +- 0.00001
     }
+    "not change an empty vector" in {
+      l2Normalize(emptyVec) shouldBe emptyVec
+    }
   }
 
   "L1 normalization" should {
     "produce elements that add to 1.0" in {
       l1Normalize(v1).sum shouldBe 1.0 +- 0.00001
+    }
+
+    "not change an empty vector" in {
+      l1Normalize(emptyVec) shouldBe emptyVec
     }
   }
 

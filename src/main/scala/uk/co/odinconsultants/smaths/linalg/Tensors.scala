@@ -30,14 +30,22 @@ object Tensors {
   def l1Normalize[T : Numeric : ClassTag](xs: Vec[T]): Vec[Double] = {
     val op    = implicitly[Numeric[T]]
     val total = op.toDouble(xs.sum)
-    xs.map(op.toDouble(_) / total)
+    elementWiseDivide(xs, total)
   }
 
   def l2Normalize[T : Numeric : ClassTag](xs: Vec[T]): Vec[Double] = {
     val op      = implicitly[Numeric[T]]
     val squared = xs.map(x => op.times(x, x))
     val total   = op.toDouble(squared.sum)
-    xs.map(op.toDouble(_) / pow(total, 0.5))
+    elementWiseDivide(xs, pow(total, 0.5))
+  }
+
+  def elementWiseDivide[T : Numeric : ClassTag](xs: Vec[T], d: Double): Vec[Double] = {
+    val op      = implicitly[Numeric[T]]
+    if (d == 0d)
+      emptyVec[Double](xs.length)
+    else
+      xs.map(op.toDouble(_) / d)
   }
 
 }
