@@ -12,6 +12,7 @@ class LogsSpec extends WordSpec with Matchers {
   "16" should {
     "be 4 in base 2" in {
       log(2, 16) shouldBe 4
+      logBase2(16) shouldBe 4
     }
   }
 
