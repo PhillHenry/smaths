@@ -1,9 +1,11 @@
 package uk.co.odinconsultants.smaths.stats
 
+import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
 import org.scalatest.{Matchers, WordSpec}
-
 import uk.co.odinconsultants.smaths.linalg.Tensors._
 
+@RunWith(classOf[JUnitRunner])
 class ChiSquareSpec extends WordSpec with Matchers {
 
   import ChiSquare._
