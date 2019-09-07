@@ -13,4 +13,11 @@ object Continuous {
          gXPlusY <- gamma(plus(x, y)) ) yield toDouble(xy) / toDouble(gXPlusY)
   }
 
+  def modeBeta[T: Integral](x: T, y: T): Double = {
+    val op = implicitly[Numeric[T]]
+    val a = op.toDouble(x)
+    val b = op.toDouble(y)
+    (a - 1) / (a + b - 2)
+  }
+
 }

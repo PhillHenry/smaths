@@ -12,4 +12,10 @@ class ContinuousSpec extends WordSpec with Matchers {
     }
   }
 
+  "Mode of a beta(65, 42)" should {
+    "be approx 0.6095" in {
+      modeBeta(65, 42) shouldBe 0.6095 +- 0.00009
+    }
+  }
+
 }
