@@ -20,4 +20,15 @@ object Continuous {
     (a - 1) / (a + b - 2)
   }
 
+  def pdfBeta[T: Integral](x: Double, a: T, b: T): Option[Double] = {
+    val op = implicitly[Numeric[T]]
+    import op._
+    beta(a, b).map { d =>
+      val alpha = toDouble(a)
+      val beta = toDouble(b)
+      println(s"d = $d")
+      math.pow(x, alpha - 1) * math.pow(1 - x, beta - 1) / d
+    }
+  }
+
 }
