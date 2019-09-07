@@ -5,7 +5,7 @@ import scala.annotation.tailrec
 object Factorial {
 
   def factorial[T: Integral](x: T): Option[T] = {
-    val op    = implicitly[Numeric[T]]
+    val op = implicitly[Numeric[T]]
     import op._
 
     @tailrec
