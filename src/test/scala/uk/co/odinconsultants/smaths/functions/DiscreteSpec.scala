@@ -1,7 +1,10 @@
 package uk.co.odinconsultants.smaths.functions
 
+import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
 import org.scalatest.{Matchers, WordSpec}
 
+@RunWith(classOf[JUnitRunner])
 class DiscreteSpec extends WordSpec with Matchers {
 
   import Discrete._
