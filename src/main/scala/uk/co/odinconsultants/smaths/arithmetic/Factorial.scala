@@ -4,13 +4,19 @@ import scala.annotation.tailrec
 
 object Factorial {
 
-  def factorial[T: Integral](x: T): T = {
+  def factorial[T: Integral](x: T): Option[T] = {
     val op    = implicitly[Numeric[T]]
+    import op._
+
     @tailrec
     def next(x: T, acc: T): T = {
-      if (op.fromInt(1) == x) acc else next(op.minus(x, op.one), op.times(x, acc))
+      if (lteq(x, fromInt(1))) acc else next(minus(x, one), times(x, acc))
     }
-    next(x, op.one)
+
+    if (lt(x, zero))
+      None
+    else
+      Some(next(x, one))
   }
 
 }

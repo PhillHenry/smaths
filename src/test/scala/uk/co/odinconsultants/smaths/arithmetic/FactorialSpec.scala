@@ -8,7 +8,22 @@ class FactorialSpec extends WordSpec with Matchers {
 
   "5!" should {
     "be 120" in {
-      factorial(5) shouldBe 120
+      factorial(5) shouldBe Some(120)
+    }
+    "be 120 for BigInt too" in {
+      factorial(BigInt(5)) shouldBe Some(BigInt(120))
+    }
+  }
+
+  "0" should {
+    "be 1" in {
+      factorial(0) shouldBe Some(1)
+    }
+  }
+
+  "Negative numbers" should {
+    "be undefined" in {
+      factorial(-1) shouldBe None
     }
   }
 
