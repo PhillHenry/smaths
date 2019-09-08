@@ -3,6 +3,7 @@ package uk.co.odinconsultants.smaths.functions
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.{Matchers, WordSpec}
+import uk.co.odinconsultants.smaths.Result.errorIn
 
 @RunWith(classOf[JUnitRunner])
 class DiscreteSpec extends WordSpec with Matchers {
@@ -11,7 +12,9 @@ class DiscreteSpec extends WordSpec with Matchers {
 
   "Gamma(6)" should {
     "equal 5!" in {
-      gamma(6) shouldBe Some(120)
+      val result = gamma(6)
+      errorIn(result) shouldBe false
+      result foreach { _  shouldBe 120 }
     }
   }
 

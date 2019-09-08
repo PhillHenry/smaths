@@ -1,10 +1,12 @@
 package uk.co.odinconsultants.smaths.arithmetic
 
+import uk.co.odinconsultants.smaths.Result.IntegralResult
+
 import scala.annotation.tailrec
 
 object Factorial {
 
-  def factorial[T: Integral](x: T): Option[T] = {
+  def factorial[T: Integral](x: T): IntegralResult[T] = {
     val op = implicitly[Numeric[T]]
     import op._
 
