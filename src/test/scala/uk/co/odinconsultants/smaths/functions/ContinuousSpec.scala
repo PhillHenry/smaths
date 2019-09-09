@@ -12,7 +12,7 @@ class ContinuousSpec extends WordSpec with Matchers {
 
   "Beta(4, 2)" should {
     "be (6 * 1) / 120" in {
-      val result = beta(4, 2)
+      val result = B(4, 2)
       errorIn(result) shouldBe false
       result foreach { _  shouldBe 1d/20 }
     }

@@ -4,7 +4,7 @@ import uk.co.odinconsultants.smaths.functions.Discrete.gamma
 
 object Continuous {
 
-  def beta[T: Integral](x: T, y: T): Option[Double] = {
+  def B[T: Integral](x: T, y: T): Option[Double] = {
     val op = implicitly[Numeric[T]]
     import op._
     val gxy = for (gx <- gamma(x);
@@ -23,7 +23,7 @@ object Continuous {
   def pdfBeta[T: Integral](x: Double, a: T, b: T): Option[Double] = {
     val op = implicitly[Numeric[T]]
     import op._
-    beta(a, b).map { d =>
+    B(a, b).map { d =>
       val alpha = toDouble(a)
       val beta = toDouble(b)
       println(s"d = $d")
