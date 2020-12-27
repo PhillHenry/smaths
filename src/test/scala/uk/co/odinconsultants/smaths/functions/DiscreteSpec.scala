@@ -18,4 +18,12 @@ class DiscreteSpec extends WordSpec with Matchers {
     }
   }
 
+  "Closed form Gamma" should {
+    "equal square root of gamma for 0.5" in {
+      val actual: Option[Double] = gammaOfHalfPlus(0)
+      actual should not be None
+      actual.get shouldBe SqrtPI +- 0.0001
+    }
+  }
+
 }
